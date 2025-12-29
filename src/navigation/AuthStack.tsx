@@ -1,23 +1,30 @@
-import * as React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { useIsFocused } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SignupScreen from '../screens/auth/SignupScreen';
 import LoginScreen from '../screens/auth/LoginScreen';
 import { STANDARD_NAVIGATION_OPTIONS } from '../utils/NavigationOptions';
 
-const { Navigator, Screen } = createNativeStackNavigator();
+const Stack = createNativeStackNavigator();
 
-const AuthStack = () => (
+const AuthStack: React.FC = () => {
+  return (
     <>
-        {/* eslint-disable-next-line react/style-prop-object */}
-        <StatusBar style="light" />
-        <Navigator>
-            <Screen options={STANDARD_NAVIGATION_OPTIONS} name="Signup" component={SignupScreen} />
-            <Screen options={STANDARD_NAVIGATION_OPTIONS} name="Login" component={LoginScreen} />
-        </Navigator>
+      <StatusBar style="light" />
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Signup"
+          component={SignupScreen}
+          options={STANDARD_NAVIGATION_OPTIONS}
+        />
+        <Stack.Screen
+          name="Login"
+          component={LoginScreen}
+          options={STANDARD_NAVIGATION_OPTIONS}
+        />
+      </Stack.Navigator>
     </>
-);
+  );
+};
 
 export default AuthStack;

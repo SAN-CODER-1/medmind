@@ -1,26 +1,21 @@
-/* eslint-disable import/prefer-default-export */
-// Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
-import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getFirestore } from 'firebase/firestore';
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: process.env.EXPO_PUBLIC_apiKey,
-    authDomain: process.env.EXPO_PUBLIC_authDomain,
-    projectId: process.env.EXPO_PUBLIC_projectId,
-    storageBucket: process.env.EXPO_PUBLIC_storageBucket,
-    messagingSenderId: process.env.EXPO_PUBLIC_messagingSenderId,
-    appId: process.env.EXPO_PUBLIC_appId
+  apiKey: "AIzaSyD7neQH7TbxVLo8r7CjYC8Wl8ayUC6is7M",
+  authDomain: "meditation-app-7c483.firebaseapp.com",
+  projectId: "meditation-app-7c483",
+  storageBucket: "meditation-app-7c483.firebasestorage.app",
+  messagingSenderId: "941531777954",
+  appId: "1:941531777954:web:b4d2272acd175dc73580fb",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
 export const auth = initializeAuth(app, {
-    persistence: getReactNativePersistence(ReactNativeAsyncStorage),
+  persistence: getReactNativePersistence(AsyncStorage),
 });
+
 export const db = getFirestore(app);

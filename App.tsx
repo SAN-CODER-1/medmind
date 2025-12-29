@@ -1,15 +1,15 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import './config/firebase';
-import ProfileProvider from './src/context/ProfileProvider';
 import AppNavigator from './src/navigation/AppNavigator';
+import ProfileProvider from './src/context/ProfileProvider';
+import './config/firebase';
 
-const App = () => (
+export default function App() {
+  return (
     <ProfileProvider>
-        <NavigationContainer>
-            <AppNavigator />
-        </NavigationContainer>
+      <NavigationContainer>
+        <AppNavigator />
+      </NavigationContainer>
     </ProfileProvider>
-);
-
-export default App;
+  );
+}
